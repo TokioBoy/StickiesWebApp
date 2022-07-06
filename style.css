@@ -5,8 +5,82 @@
 }
 
 :root {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', sans-serif;
   font-size: 15px;
   line-height: 1.4;
 }
 
+body {
+    background-color: #555;
+}
+
+main {
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 1rem;
+}
+
+
+@media(max-width: 1120px){
+    main{
+        grid-template-columns: repeat(3, 1fr);
+        padding: 2rem;
+    }
+}
+
+@media(max-width: 900px){
+    main{
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+    }
+}
+@media(max-width: 640px){
+    main{
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0.8rem;
+    }
+}
+
+button {
+    background-color: transparent;
+    border: 2px dashed #888;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 12rem;
+}
+
+button>svg {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    fill: #888;
+    transition: all 0.3s;
+}
+
+button:hover>svg, button:active>svg {
+    /* выделяем svg только при наводе на кнопку */
+    transform: scale(1.4);
+    fill: #fff; 
+}
+
+textarea {
+    display: block;
+    position: relative;
+    background-color: aquamarine;
+    padding: 1rem;
+    resize: none;
+    outline: none;
+    border-width: 0;
+    font-family: inherit;
+    line-height: inherit;
+    font-size:inherit
+}
+
+textarea:focus {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+}
