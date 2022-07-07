@@ -114,3 +114,32 @@
 
         //         console.log(findLargest(numbers))
                 // вывод функции
+
+        Vue.createApp({
+
+                data(){
+                        return{
+                                stickies: []
+                                // в зависимости от количества '' в массиве может быть любое начальное количество стиков , в данном случае их нет и количество начальных - 0
+                        };
+                },
+                mounted(){
+
+                },
+                methods: {
+                        addStickie(){
+                                this.stickies.push('');
+                        },
+                        deleteStickie(index) {
+                                // console.log(index);
+                                if(this.stickies[index] == ''){
+                                // если строка этого стика пустая - удаляет стик
+                                // == - сравнивает
+                                this.stickies.splice(index, 1);
+                                // удаляет по нажатию один стик
+                                }
+                        }
+                }
+
+        }).mount('#app');
+        // Фреймворк
