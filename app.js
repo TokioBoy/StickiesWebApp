@@ -124,7 +124,6 @@
                         };
                 },
                 mounted(){
-
                         if ('stickies' in localStorage) {
                                 // если обьект в хранилище
                             this.stickies = JSON.parse(localStorage.getItem('stickies'));    
@@ -138,16 +137,23 @@
                 },
                 methods: {
                         addStickie(){
-                                this.stickies.push('');
+                                this.stickies.push({text: '', color: '#7fffd4'});
                         },
                         deleteStickie(index) {
                                 // console.log(index);
-                                if(this.stickies[index] == ''){
-                                // если строка этого стика пустая - удаляет стик
+                                if(this.stickies[index].text == ''){
+                                // если текстовая строка этого стика пустая - удаляет стик
                                 // == - сравнивает
                                 this.stickies.splice(index, 1);
                                 // удаляет по нажатию один стик
                                 }
+                        },
+                        changeColor(index) {
+                                const colors = ['#6eed2a', '#f989d6', '#20dff8', '#7fffd4'];
+                                const currentColor = this.stickies[index].color;      
+                                const indx = colors.indexOf(currentColor);
+                                const newColorIndx = (indx + 1) % colors.length;
+                                this.stickies[index].color = colors[newColorIndx];
                         }
                 }
 

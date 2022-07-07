@@ -71,7 +71,6 @@ button:hover>svg, button:active>svg {
 textarea {
     display: block;
     position: relative;
-    background-color: aquamarine;
     padding: 1rem;
     resize: none;
     outline: none;
