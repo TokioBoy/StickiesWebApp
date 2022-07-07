@@ -125,6 +125,16 @@
                 },
                 mounted(){
 
+                        if ('stickies' in localStorage) {
+                                // если обьект в хранилище
+                            this.stickies = JSON.parse(localStorage.getItem('stickies'));    
+                                //     возвращает   
+                        }
+                        window.addEventListener('keyup', () => {
+                                let data = JSON.stringify(this.stickies);
+                                // сохраняет в data
+                                localStorage.setItem('stickies', data);
+                        });
                 },
                 methods: {
                         addStickie(){
